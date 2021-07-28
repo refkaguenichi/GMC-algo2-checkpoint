@@ -1,0 +1,28 @@
+ALGORITHM distincts_sum
+VAR
+    hash:HASH_TABLE<INTEGER,INTEGER>;
+    set1 : ARRAY_OF INTEGER[n1];
+    set2 : ARRAY_OF INTEGER[n2];
+    i, j, k:INTEGER;
+BEGIN
+    FOR i FROM 0 TO n1-1 STEP 1  DO
+        hash.insert(set1[i], 1)
+    END_FOR
+
+    FOR j FROM 0 TO n2-1 STEP step 1 DO
+        IF ( hash.lookup(set2[j])=true]) THEN
+          count:=hash.get(set2[j])
+          hash.insert(set2[j], count+1)
+         ELSE
+       hash.insert(set2[j], 1)
+        END_IF       
+    END_FOR
+
+    key:=hash.get.keys()
+
+    FOR k FROM 0 TO key.length STEP 1  DO
+        IF (hash.get(key[i])=1) THEN
+           sum:=sum+key[i]
+        END_IF
+    END_FOR
+END
